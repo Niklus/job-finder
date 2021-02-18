@@ -1,0 +1,7 @@
+a.company-link {
+  text-decoration: none;
+}
+
+a.company-link:hover {
+  text-decoration: underline;
+}
