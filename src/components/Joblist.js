@@ -13,13 +13,15 @@ function Joblist(props) {
       {props.jobList.map((job) => {
         return (
           <div className="w3-panel w3-light-grey w3-leftbar" key={job.id}>
-            <Link to={`/detail#${job.id}`} style={{ textDecoration: "none" }}>
-              <h3 className="w3-text-blue">
-                <b>{job.title}</b> -{" "}
-                <i className="w3-text-grey">{job.type.toLowerCase()}</i>
-              </h3>
-            </Link>
-            <h4 className="w3-text-grey">
+            <div className="my-link">
+              <Link to={`/detail#${job.id}`} style={{ textDecoration: "none" }}>
+                <h3 className="w3-text-blue">
+                  <b>{job.title}</b> -{" "}
+                  <i className="w3-text-grey">{job.type.toLowerCase()}</i>
+                </h3>
+              </Link>
+            </div>
+            <h4>
               <a
                 href={job.company_url}
                 target="_blank"

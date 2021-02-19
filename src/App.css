@@ -5,3 +5,11 @@ a.company-link {
 a.company-link:hover {
   text-decoration: underline;
 }
+
+.my-link:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
