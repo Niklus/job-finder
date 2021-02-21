@@ -1,5 +1,5 @@
 .detail-container {
-  max-width: 1500px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .card-1 {
-  width: 470px;
+  width: 400px;
   margin-top: 25px;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .card-2 {
-  width: 470px;
+  width: 400px;
 }
 
 .card-2 h2 {
