@@ -1,24 +1,19 @@
-import "./App.css";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Jobdetail from "./components/Jobdetail";
+import Home from "./components/Home/Home";
+import Jobdetail from "./components/Jobdetail/Jobdetail";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/detail">
-            <Jobdetail />
-          </Route>
-        </Switch>
-      </Router>
-    </>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/detail">
+          <Jobdetail />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

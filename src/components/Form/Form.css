@@ -1,0 +1,14 @@
+form {
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+label,
+input {
+  font-size: 20px;
+}
+
+.search-btn {
+  margin-top: 30.5px;
+  font-size: 20px;
+}

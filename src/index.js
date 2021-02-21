@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./w3.css";
+import "./libs/w3.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 

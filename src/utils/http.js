@@ -1,3 +1,7 @@
+/**
+ * Http fetch wrapper
+ */
+
 class Http {
   constructor() {
     this.baseUrl = "";

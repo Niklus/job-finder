@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import Http from "../utils/http";
-import Form from "./Form";
-import Joblist from "./Joblist";
+import Http from "../../utils/http";
+import Header from "../Header/Header";
+import Form from "../Form/Form";
+import Joblist from "../Joblist/Joblist";
 
 const http = new Http();
 
@@ -13,7 +14,9 @@ function Home() {
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
 
-  http.setBaseUrl("/positions.json");
+  http.setBaseUrl(
+    "https://cors-server-app.herokuapp.com/https://jobs.github.com/positions.json"
+  );
 
   useEffect(() => {
     if (jobList.length === 0) {
@@ -27,7 +30,11 @@ function Home() {
 
   function getJobs(url) {
     http.get(url).then((data) => {
-      setJobList(data);
+      if (data.length === 0) {
+        alert(`No jobs found in ${location}`);
+      } else {
+        setJobList(data);
+      }
     });
   }
 
@@ -54,10 +61,13 @@ function Home() {
     }
 
     getJobs(endpoint);
+    setDescription("");
+    setLocation("");
   }
 
   return (
     <>
+      <Header onButtonClick={() => getJobs("/")} />
       <Form
         description={description}
         location={location}

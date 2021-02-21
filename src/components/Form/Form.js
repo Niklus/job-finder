@@ -1,13 +1,8 @@
+import "./Form.css";
+
 function Form(props) {
   return (
-    <form
-      onSubmit={props.onFormSubmit}
-      className="w3-row-padding"
-      style={{
-        maxWidth: "1200px",
-        margin: "20px auto",
-      }}
-    >
+    <form onSubmit={props.onFormSubmit} className="w3-row-padding">
       <div className="w3-third">
         <label htmlFor="description">
           <b>Job Description</b>
@@ -29,16 +24,13 @@ function Form(props) {
           id="location"
           className="w3-input w3-border"
           type="text"
-          placeholder="Enter location"
+          placeholder="Enter your location"
           value={props.location}
           onChange={props.onLocationChange}
         />
       </div>
       <div className="w3-third">
-        <button
-          className="w3-blue w3-button w3-block w3-round"
-          style={{ marginTop: "22.5px" }}
-        >
+        <button className="w3-blue w3-button w3-block w3-round search-btn">
           <b>Search</b>
         </button>
       </div>

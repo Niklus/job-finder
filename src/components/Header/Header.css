@@ -1,0 +1,11 @@
+header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+#title {
+  margin-left: -10px;
+}

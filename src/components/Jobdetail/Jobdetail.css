@@ -1,0 +1,49 @@
+.detail-container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-top: -85px;
+}
+
+.title h2,
+.title h4 {
+  font-weight: bold;
+}
+
+.row {
+  font-size: 20px;
+  align-items: flex-start;
+}
+
+.card-1 {
+  width: 470px;
+  margin-top: 25px;
+}
+
+.card-1 h2 {
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.card-2 {
+  width: 470px;
+}
+
+.card-2 h2 {
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+.company-url {
+  padding-bottom: 20px;
+}
+
+.how-to-apply {
+  overflow-x: auto;
+}
