@@ -3,6 +3,7 @@ import Http from "../../utils/http";
 import Header from "../Header/Header";
 import Form from "../Form/Form";
 import Joblist from "../Joblist/Joblist";
+import Loader from "../Loader/Loader";
 
 const http = new Http();
 
@@ -10,9 +11,9 @@ function Home() {
   const [jobList, setJobList] = useState(() => {
     return JSON.parse(localStorage.getItem("jobList")) || [];
   });
-
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   http.setBaseUrl(
     "https://cors-server-app.herokuapp.com/https://jobs.github.com/positions.json"
@@ -33,6 +34,7 @@ function Home() {
   }, []);
 
   function getJobs(url) {
+    setIsLoading(true);
     http
       .get(url)
       .then((data) => {
@@ -44,6 +46,9 @@ function Home() {
       })
       .catch((err) => {
         console.error("OOPS:" + err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -73,7 +78,6 @@ function Home() {
     setDescription("");
     setLocation("");
   }
-
   return (
     <>
       <Header onButtonClick={() => getJobs("/")} />
@@ -84,7 +88,13 @@ function Home() {
         onDescriptionChange={handleDescriptionChange}
         onLocationChange={handleLocationChange}
       />
-      <Joblist jobList={jobList} />
+      {isLoading ? (
+        <div className="w3-display-middle">
+          <Loader />
+        </div>
+      ) : (
+        <Joblist jobList={jobList} />
+      )}
     </>
   );
 }
