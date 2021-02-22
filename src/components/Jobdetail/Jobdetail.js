@@ -7,6 +7,7 @@ function Jobdetail() {
 
   useEffect(() => {
     getJob();
+    document.title = "Tech Work - Job Detail";
   }, []);
 
   function getJob() {

@@ -28,14 +28,23 @@ function Home() {
     localStorage.setItem("jobList", JSON.stringify(jobList));
   }, [jobList]);
 
+  useEffect(() => {
+    document.title = "Tech Work - Job List";
+  }, []);
+
   function getJobs(url) {
-    http.get(url).then((data) => {
-      if (data.length === 0) {
-        alert(`No jobs found in ${location}`);
-      } else {
-        setJobList(data);
-      }
-    });
+    http
+      .get(url)
+      .then((data) => {
+        if (data.length === 0) {
+          alert(`No jobs found in ${location}`);
+        } else {
+          setJobList(data);
+        }
+      })
+      .catch((err) => {
+        console.error("OOPS:" + err);
+      });
   }
 
   function handleDescriptionChange(e) {

@@ -13,8 +13,9 @@
 }
 
 .row {
-  font-size: 20px;
+  font-size: 18px;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 .card-1 {
