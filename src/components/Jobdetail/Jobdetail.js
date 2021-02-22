@@ -13,9 +13,9 @@ function Jobdetail() {
   );
 
   useEffect(() => {
-    const id = window.location.hash.slice(1);
-
     document.title = "Tech Work - Job Detail";
+
+    const id = window.location.hash.slice(1);
 
     getFromStorage(id);
 
