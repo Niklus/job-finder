@@ -1,20 +1,43 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Jobdetail.css";
+import Http from "../../utils/http";
+
+const http = new Http();
 
 function Jobdetail() {
   const [job, setJob] = useState({});
 
-  useEffect(() => {
-    getJob();
-    document.title = "Tech Work - Job Detail";
-  }, []);
+  http.setBaseUrl(
+    "https://cors-server-app.herokuapp.com/https://jobs.github.com/positions"
+  );
 
-  function getJob() {
+  useEffect(() => {
     const id = window.location.hash.slice(1);
-    const jobList = JSON.parse(localStorage.getItem("jobList"));
-    setJob(jobList.find((el) => el.id === id));
-  }
+
+    document.title = "Tech Work - Job Detail";
+
+    getFromStorage(id);
+
+    function getFromStorage(id) {
+      const jobList = JSON.parse(localStorage.getItem("jobList"));
+      if (jobList) {
+        const jobDetail = jobList.find((el) => el.id === id);
+        jobDetail ? setJob(jobDetail) : getFromNetwork(id);
+      } else {
+        getFromNetwork(id);
+      }
+    }
+
+    function getFromNetwork(id) {
+      http
+        .get(`/${id}.json`)
+        .then((data) => setJob(data))
+        .catch((err) => {
+          console.error("OOPS:" + err);
+        });
+    }
+  }, []);
 
   return (
     <div className="w3-container detail-container">
