@@ -1,5 +1,5 @@
-import Home from "./components/Home/Home";
-import Jobdetail from "./components/Jobdetail/Jobdetail";
+import Home from "./Home/Home";
+import Jobdetail from "./Jobdetail/Jobdetail";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
