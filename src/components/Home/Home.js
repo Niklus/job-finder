@@ -23,7 +23,8 @@ function Home() {
     if (jobList.length === 0) {
       getJobs("/");
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("jobList", JSON.stringify(jobList));
