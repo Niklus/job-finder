@@ -8,9 +8,7 @@ const http = new Http();
 function Jobdetail() {
   const [job, setJob] = useState({});
 
-  http.setBaseUrl(
-    "https://cors-server-app.herokuapp.com/https://jobs.github.com/positions"
-  );
+  http.setBaseUrl("https://jobs.github.com/positions");
 
   useEffect(() => {
     document.title = "Tech Work - Job Detail";

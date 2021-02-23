@@ -5,10 +5,11 @@
 class Http {
   constructor() {
     this.baseUrl = "";
+    this.proxy = "https://cors-server-app.herokuapp.com";
   }
 
   setBaseUrl(url) {
-    this.baseUrl = url;
+    this.baseUrl = `${this.proxy}/${url}`;
   }
 
   getBaseUrl() {

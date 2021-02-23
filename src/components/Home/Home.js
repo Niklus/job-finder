@@ -15,11 +15,11 @@ function Home() {
   const [location, setLocation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  http.setBaseUrl(
-    "https://cors-server-app.herokuapp.com/https://jobs.github.com/positions.json"
-  );
+  http.setBaseUrl("https://jobs.github.com/positions.json");
 
   useEffect(() => {
+    document.title = "Tech Work - Job List";
+
     if (jobList.length === 0) {
       getJobs("/");
     }
@@ -29,10 +29,6 @@ function Home() {
   useEffect(() => {
     localStorage.setItem("jobList", JSON.stringify(jobList));
   }, [jobList]);
-
-  useEffect(() => {
-    document.title = "Tech Work - Job List";
-  }, []);
 
   function getJobs(url) {
     setIsLoading(true);
